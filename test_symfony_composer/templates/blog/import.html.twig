@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% form_theme importForm 'bootstrap_5_layout.html.twig' %}
+
+
+{% block body %}
+
+    <h3>Importer un fichier CSV : </h3>
+
+    <div class="container">
+        {{ form(importForm) }}
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock body %}

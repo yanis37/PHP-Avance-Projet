@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h3>Liste des films : </h3>
+
+
+    <div class="container">
+
+
+
+        {% for film in films %}
+
+        <h3><a href="{{ path('film', { 'id': film.id }) }}"> • {{ film.name }} </a></h3>
+        <p> - Description : {{ film.description }}</p>
+        <p> - Note : {{ film.note }} / 10</p>
+        <p> - {{ film.votersNumber }} personnes ont voté.</p>
+
+    {%  endfor %}
+
+    </div>
+
+
+
+{% endblock body%}

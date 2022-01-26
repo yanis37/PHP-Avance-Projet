@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h3 >Détail du film :</h3>
+    <div class="container">
+        <p class="lead">Titre du film : {{ film.name }}</p>
+        <p class="lead">Identifiant du film : {{ film.id }}</p>
+        <p class="lead">Description du film : {{ film.Description }}</p>
+        <p class="lead">Score du film : {{ film.note }}</p>
+        <p class="lead">Nombre de votant pour ce film : {{ film.votersNumber }}</p>
+    </div>
+
+
+
+    <br><br><br>
+
+    <div class="container">
+        <div class="test">
+    {{ form_start(form) }}
+    <p>Code admin : </p>{{ form_widget(form.code) }}
+        {{ form_widget(form.supprimer)}}    {{ form_end(form) }}
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        </div>
+
+
+
+    </div>
+
+{% endblock body %}
